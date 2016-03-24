@@ -1,0 +1,25 @@
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 24, 2016 - 10:30:04
+Django version 1.9.4, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 24, 2016 - 10:36:34
+Django version 1.9.4, using settings 'mysite.settings'
+Starting development server at http://185.87.51.66:8000/
+Quit the server with CONTROL-C.
+----------------------------------------
+Exception happened during processing of request from ('188.187.68.96', 54539)
+Performing system checks...
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 24, 2016 - 14:39:13
+Django version 1.9.4, using settings 'mysite.settings'
+Starting development server at http://185.87.51.66:8000/
+Quit the server with CONTROL-C.
