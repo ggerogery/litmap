@@ -61,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-        		'/home/mysite/mapgeo/static/templates/',
+        		'/home/mysite/mapgeo/templates/',
         		'/usr/lib/python2.7/site-packages/leaflet/templates/',
         ],
         'APP_DIRS': True,
@@ -130,5 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/home/mysite/mapgeo/static/'
-MEDIA_ROOT = '/home/mysite/mapgeo/static/media/'
+MEDIA_ROOT = '/home/mysite/media/'
+MEDIA_URL = '/media/'
+STATIC_ROOT = '/home/mysite/static/'
+STATIC_URL = '/static/'

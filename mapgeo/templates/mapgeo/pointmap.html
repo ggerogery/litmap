@@ -1,20 +1,53 @@
 {% load leaflet_tags %}
 {% load geojson_tags %}
-
 {% block extra_assets %}
+
   {% leaflet_js %}
   {% leaflet_css %}
-{% endblock %}
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+        }
+        .leaflet-container-default {min-height: 100%;}
+        .leaflet-container-default {min-width: 100%;}
+        .leaflet-popup-content-wrapper,
+		.leaflet-popup-tip {
+	background: white;
 
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	}
+    </style>
+{% endblock %}
 {% block content %}
 
-    <script type="text/javascript">
-      var collection = {{ rsquery|geojsonfeature|safe }};
-      function map_init(map, options) {
-          L.geoJson(collection).addTo(map);
-      }
-    </script>
+<script type="text/javascript">
+  var collection = {{ rsquery|geojsonfeature:"popupContent"|safe }};
 
-    {% leaflet_map "rsquery" callback="window.map_init" %}
+/*
+layer	ILayer	The layer for the GeoJSON feature that is being added to the map.
+properties	Object	GeoJSON properties of the feature.
+*/
 
+  function onEachFeature(feature, layer) {
+    if (feature.properties && feature.properties.popupContent) {
+      layer.bindPopup(feature.properties.popupContent);
+    }
+  }
+
+  function map_init(map, options) {
+    L.geoJson(collection, {onEachFeature: onEachFeature}).addTo(map);
+    map.setView([59.9505, 30.3167], 13);
+
+  }
+ 
+  // {"type":"Point","coordinates":[30.264759063720703,59.95664322233565]}
+  console.log();
+</script>
+
+    {% leaflet_map "map" callback="window.map_init" %}
 {% endblock %}

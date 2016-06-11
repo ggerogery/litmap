@@ -4,4 +4,11 @@ from django.contrib import admin
 from models import MapObjects
 from leaflet.admin import LeafletGeoAdmin
 
-admin.site.register(MapObjects, LeafletGeoAdmin)
+class WeatherStationAdminAdmin(LeafletGeoAdmin):
+    settings_overrides = {
+       'DEFAULT_CENTER': (59.9505, 30.3167),
+       'DEFAULT_ZOOM': 13,
+
+    }
+
+admin.site.register(MapObjects, WeatherStationAdminAdmin)
